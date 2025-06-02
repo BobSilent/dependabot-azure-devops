@@ -131,7 +131,7 @@ export class DependabotCli {
       if (!fs.existsSync(jobOutputPath) || fs.statSync(jobOutputPath)?.size == 0) {
         section(`Processing job from '${jobInputPath}'`);
         const additionalEnv = {
-          DEPENDABOT_JOB_ID: jobId.replace(/-/g, "_"), // replace hyphens with underscores
+          DEPENDABOT_JOB_ID: jobId.replace(/-/g, '_'), // replace hyphens with underscores
           LOCAL_GITHUB_ACCESS_TOKEN: options?.gitHubAccessToken, // avoid rate-limiting when pulling images from GitHub container registries
           LOCAL_AZURE_ACCESS_TOKEN: options?.azureDevOpsAccessToken, // technically not needed since we already supply this in our 'git_source' registry, but included for consistency
           FAKE_API_PORT: options?.apiListeningPort, // used to pin PORT of the Dependabot CLI api back-channel
